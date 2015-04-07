@@ -1,9 +1,9 @@
 package main
 
 import (
-	"os"
-	"log"
 	"github.com/medimatrix/stacky/stacky"
+	"log"
+	"os"
 )
 
 func main() {
