@@ -58,9 +58,17 @@ Print
 The last 2 values on the stack are added, popped off, and then the result of the
 addition is pushed on to the stack.
 
+#### Sub
+The last 2 values on the stack are substracted, popped off, and then the result
+of the substraction is pushed on to the stack.
+
 #### Mult
 The last 2 values on the stack are multiplied, popped off, and then the result
 of the multiplication is pushed on to the stack.
+
+#### Div
+The last 2 values on the stack are divided, popped off, and then the result
+of the division is pushed on to the stack.
 
 #### Literal
 The next instruction is interpreted as a value. Use `Literal` to push arguments

@@ -62,10 +62,18 @@ func (vm *VM) Interpret(instructions instructions) {
 			n1 := vm.stack.pop()
 			n2 := vm.stack.pop()
 			vm.stack.push(n1 + n2)
+		case instSub:
+			n1 := vm.stack.pop()
+			n2 := vm.stack.pop()
+			vm.stack.push(n1 - n2)
 		case instMult:
 			n1 := vm.stack.pop()
 			n2 := vm.stack.pop()
 			vm.stack.push(n1 * n2)
+		case instDiv:
+			n1 := vm.stack.pop()
+			n2 := vm.stack.pop()
+			vm.stack.push(n1 / n2)
 		case instLiteral:
 			val := stackVal(instructions[i+1])
 			vm.stack.push(val)

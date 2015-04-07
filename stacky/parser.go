@@ -25,8 +25,12 @@ func getInstruction(toParse string) (instruction, error) {
 		val = instPrint
 	case "Add":
 		val = instAdd
+	case "Sub":
+		val = instSub
 	case "Mult":
 		val = instMult
+	case "Div":
+		val = instDiv
 	case "Literal":
 		val = instLiteral
 	case "DBGSTK":

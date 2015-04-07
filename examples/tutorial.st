@@ -10,3 +10,7 @@ Literal
 Add
 ; Let's view the stack
 DBGSTK
+; Let's divide the two numbers on the stack
+Div
+; Since literal values are integers, we will see [0]
+DBGSTK
