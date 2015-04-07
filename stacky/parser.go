@@ -76,7 +76,7 @@ func Read(filename string) (instructions, error) {
 		return nil, err
 	}
 
-	data := make([]string, 0)
+	var data []string
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		data = append(data, scanner.Text())
