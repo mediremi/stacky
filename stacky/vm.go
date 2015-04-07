@@ -22,12 +22,12 @@ func assert(test bool, message string) {
 	}
 }
 
-func push(s *stack, data stackVal) {
+func (s *stack) push(data stackVal) {
 	assert(len(*s) < maxStackSize, "Stack overflow")
 	*s = append(*s, data)
 }
 
-func pop(s *stack) stackVal {
+func (s *stack) pop() stackVal {
 	assert(len(*s) > 0, "Stack is not big enough")
 	v := (*s)[len(*s)-1]
 	*s = (*s)[:len(*s)-1]
@@ -53,22 +53,22 @@ func (vm *VM) Interpret(instructions instructions) {
 			// Note: string([]byte) works, but go does not want to convert the
 			// stack type.
 			for _, char := range chars {
-				pop(&vm.stack)
+				vm.stack.pop()
 				fmt.Print(string(char))
 			}
 			// Append a newline
 			fmt.Println("")
 		case instAdd:
-			n1 := pop(&vm.stack)
-			n2 := pop(&vm.stack)
-			push(&vm.stack, n1+n2)
+			n1 := vm.stack.pop()
+			n2 := vm.stack.pop()
+			vm.stack.push(n1+n2)
 		case instMult:
-			n1 := pop(&vm.stack)
-			n2 := pop(&vm.stack)
-			push(&vm.stack, n1*n2)
+			n1 := vm.stack.pop()
+			n2 := vm.stack.pop()
+			vm.stack.push(n1*n2)
 		case instLiteral:
 			val := stackVal(instructions[i+1])
-			push(&vm.stack, val)
+			vm.stack.push(val)
 			skip = true
 		case instDBGSTK:
 			fmt.Println(vm.stack)
