@@ -5,6 +5,10 @@ import (
 	"log"
 )
 
+var fatal = func(message string) {
+	log.Fatalln(message)
+}
+
 const maxStackSize = 128
 
 type stackVal int
@@ -18,7 +22,7 @@ type VM struct {
 
 func assert(test bool, message string) {
 	if test == false {
-		log.Fatalln(message)
+		fatal(message)
 	}
 }
 
