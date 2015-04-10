@@ -12,7 +12,7 @@ func main() {
 	}
 
 	f := os.Args[1]
-	vm := stacky.NewVM()
+	vm := new(stacky.VM)
 	instructions, err := stacky.Read(f)
 	if err != nil {
 		log.Fatalln(err)

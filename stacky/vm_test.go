@@ -14,7 +14,7 @@ func TestInterpret(t *testing.T) {
 	}
 
 	for _, c := range cases {
-		vm := NewVM()
+		vm := new(VM)
 		vm.Interpret(c.arg)
 
 		for i := range vm.stack {
@@ -26,7 +26,7 @@ func TestInterpret(t *testing.T) {
 }
 
 func TestPush(t *testing.T) {
-	vm := NewVM()
+	vm := new(VM)
 
 	vm.stack.push(stackVal(1))
 	if l := len(vm.stack); l != 1 {
@@ -40,7 +40,7 @@ func TestPush(t *testing.T) {
 }
 
 func TestPop(t *testing.T) {
-	vm := NewVM()
+	vm := new(VM)
 
 	var expected stackVal = 1
 	vm.stack = append(vm.stack, expected)
@@ -63,7 +63,7 @@ func TestPop(t *testing.T) {
 }
 
 func TestStackOverflow(t *testing.T) {
-	vm := NewVM()
+	vm := new(VM)
 
 	for i := 0; i < maxStackSize; i++ {
 		vm.Interpret(instructions{instLiteral, 0x2A})

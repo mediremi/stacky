@@ -87,9 +87,3 @@ func (vm *VM) Interpret(instructions instructions) {
 		}
 	}
 }
-
-// NewVM returns a new virtual machine that has its own stack.
-func NewVM() *VM {
-	stack := make(stack, 0)
-	return &VM{stack}
-}
